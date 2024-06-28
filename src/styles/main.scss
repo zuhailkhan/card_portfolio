@@ -1,3 +1,122 @@
+@use "./variables" as *;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: ;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --bg-gradient-onyx: linear-gradient(
+      to bottom right,
+      hsl(240, 1%, 25%) 3%,
+      hsl(0, 0%, 19%) 97%
+    );
+    // --bg-gradient-jet: #{$bg-gradient-jet};
+    // --bg-gradient-yellow-1: #{$bg-gradient-yellow-1};
+    // --bg-gradient-yellow-2: #{$bg-gradient-yellow-2};
+    // --border-gradient-onyx: #{$border-gradient-onyx};
+    // --text-gradient-yellow: #{$text-gradient-yellow};
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: ;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+// @layer base {
+//   * {
+//     @apply border-border;
+//   }
+//   body {
+//     @apply text-background;
+//   }
+// }
+
+// Layout Section
+
+.CardLayoutWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 15px;
+  background: $smoky-black;
+  color: white;
+
+  .SideBarWrapper {
+    min-width: 270px;
+    margin-bottom: 15px;
+  }
+
+  .OutletWrapper {
+    flex-grow: 1;
+    background: rgb(40, 40, 40);
+    height: 300vh;
+    background: getColor($eerie-black-1);
+    box-shadow: getShadow($shadow-1);
+    border: 1px solid getColor($jet);
+    border-radius: 20px;
+    padding: 15px;
+  }
+
+  @media screen and (min-width: 580px) {
+    padding-top: 60px;
+  }
+}

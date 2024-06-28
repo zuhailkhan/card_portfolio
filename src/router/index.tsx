@@ -1,9 +1,17 @@
-import { createBrowserRouter } from "react-router-dom";
-import AboutPage from "../pages/About";
+import CardLayout from '@/Layouts/CardLayout';
+import AboutPage from '@/pages/About';
+import { createBrowserRouter } from 'react-router-dom';
 
-export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <AboutPage />
-    },
-])
+const router = createBrowserRouter([
+  {
+    element: <CardLayout />,
+    children: [
+      {
+        path: '/',
+        element: <AboutPage />,
+      },
+    ],
+  },
+]);
+
+export default router;

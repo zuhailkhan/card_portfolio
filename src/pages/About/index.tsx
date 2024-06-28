@@ -1,7 +1,9 @@
-import { FC } from "react";
+const AboutPage = () => {
+  return (
+    <>
+      <div>About Page</div>
+    </>
+  );
+};
 
-const AboutPage: FC = () => {
-    return <h1 className="text-7xl font-semibold">Hello world!</h1>;
-}
-
-export default AboutPage
+export default AboutPage;
