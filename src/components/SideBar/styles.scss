@@ -1,0 +1,231 @@
+@use "../../styles/variables" as *;
+
+/* Mobile Portrait */
+
+.cardWrapper {
+  background: getColor($eerie-black-1);
+  color: white;
+  box-shadow: getShadow($shadow-1);
+  border: 1px solid getColor($jet);
+  border-radius: 20px;
+  max-height: 112px;
+  position: relative;
+  overflow: hidden;
+
+  .mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+
+    .avatarWrapper {
+      background: getColor($bg-gradient-onyx);
+      border-radius: 20px;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .cardContent {
+      flex-grow: 1;
+
+      .cardContentTitle {
+        font-size: 17px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        letter-spacing: -0.25px;
+      }
+
+      .cardContentSubtitle {
+        font-size: 11px;
+        font-weight: 400;
+        background: getColor($onyx);
+        padding: 3px 12px;
+        border-radius: 8px;
+        width: max-content;
+      }
+    }
+
+    .hiddenContentActivator {
+      position: absolute;
+      top: -0.5px;
+      right: -1px;
+      padding: 10px;
+      border-radius: 0 50%;
+      background: getColor($bg-gradient-onyx);
+      box-shadow: getShadow($shadow-2);
+      color: getColor($orange-yellow-crayola);
+      font-size: 13px;
+      height: 33px;
+      width: 33px;
+      z-index: 1;
+
+      .hiddenContentActivatorText {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: inherit;
+        background: getColor($bg-gradient-jet);
+        z-index: -1;
+        transition: getTransition($transition-1);
+
+        &:hover {
+          background: getColor($bg-gradient-yellow-2);
+        }
+      }
+
+      &:hover {
+        background: getColor($bg-gradient-yellow-1);
+
+        &::before {
+          background: getColor($bg-gradient-yellow-2);
+        }
+      }
+    }
+  }
+
+  .hiddenContent {
+    padding: 15px;
+    .separator {
+      width: 100%;
+      height: 1px;
+      background: getColor($jet);
+      margin: 0 auto 15px auto;
+    }
+
+    .contactList {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 15px;
+
+      .contactListItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .contactIconWrapper {
+          position: relative;
+          background: getColor($border-gradient-onyx);
+          width: 30px;
+          height: 30px;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
+          color: getColor($orange-yellow-crayola);
+          box-shadow: getShadow($shadow-1);
+          z-index: 1;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 1.5px;
+            background: getColor($eerie-black-1);
+            border-radius: inherit;
+            z-index: -1;
+          }
+        }
+
+        .contactInfo {
+          .contactTitle {
+            color: getColor($light-gray-70);
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+          }
+
+          .contactLink {
+            font-size: 13px;
+            color: getColor($white-2);
+          }
+        }
+      }
+    }
+
+    .socialLinkList {
+      display: flex;
+      gap: 10px;
+      color: getColor($light-gray-70);
+
+      .socialLink {
+        &:hover {
+          color: getColor($light-gray);
+        }
+      }
+    }
+  }
+
+  &.extraContentVisible {
+    max-height: max-content;
+    padding-bottom: 0;
+  }
+}
+
+/* Small Screen */
+
+@media (min-width: 580px) {
+  .cardWrapper {
+    max-height: 180px;
+    margin-bottom: 30px;
+
+    .mainContent {
+      gap: 25px;
+      padding: 30px;
+
+      .avatarWrapper {
+        border-radius: 30px;    
+        
+        img {
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      .cardContent {
+        
+        .cardContentTitle {
+          font-size: 26px;
+        }
+
+        .cardContentSubtitle {
+          padding: 5px 18px;
+          font-size: 12px;
+        }
+      }
+
+      .hiddenContentActivator {
+        width: max-content;
+        border-radius: 0 15px;
+        height: 33px;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .hiddenContentActivatorIcon {
+          display: none;
+        }
+        .hiddenContentActivatorText {
+          display: block;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* Small Desktop */
+
+@media (min-width: 768px) {
+  .cardWrapper {
+    max-height: 584px;
+  }
+}
